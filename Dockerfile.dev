@@ -1,0 +1,16 @@
+FROM node:16-alpine
+
+RUN mkdir /app
+
+RUN chmod -R 777 /app/
+
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+
+COPY . .
+
+CMD ["npm", "run", "start"]
